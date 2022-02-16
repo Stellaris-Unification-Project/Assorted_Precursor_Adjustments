@@ -1,0 +1,64 @@
+
+namespace = apag
+
+event = {
+	id = apag.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		is_multiplayer = no
+	}
+	
+	immediate = {
+		every_country = {
+			limit = { is_ai = no }
+			country_event = { id = apag.20001 }
+		}
+	}
+}
+
+country_event = {
+	id = apag.20001
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		is_ai = no
+		is_multiplayer = no
+	}
+	
+	immediate = {
+		capital_scope.solar_system = {
+			every_neighbor_system = {
+				set_star_flag = precursor_1
+				set_star_flag = precursor_2
+				set_star_flag = precursor_3
+				set_star_flag = precursor_4
+				set_star_flag = precursor_5
+				set_star_flag = precursor_baol_1
+				set_star_flag = precursor_zroni_1
+				every_neighbor_system = {
+					limit = { NOT = { has_star_flag = empire_home_system } }
+					set_star_flag = precursor_1
+					set_star_flag = precursor_2
+					set_star_flag = precursor_3
+					set_star_flag = precursor_4
+					set_star_flag = precursor_5
+					set_star_flag = precursor_baol_1
+					set_star_flag = precursor_zroni_1
+					every_neighbor_system = {
+						limit = { NOT = { has_star_flag = empire_home_system } }
+						set_star_flag = precursor_1
+						set_star_flag = precursor_2
+						set_star_flag = precursor_3
+						set_star_flag = precursor_4
+						set_star_flag = precursor_5
+						set_star_flag = precursor_baol_1
+						set_star_flag = precursor_zroni_1
+					}
+				}
+			}
+		}
+	}
+}
